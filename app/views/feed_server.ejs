@@ -1,0 +1,35 @@
+<% include template/header %>
+
+            <div class="ui main text container middle">
+                <% if (feeds && feeds.length > 0) { %>
+                    <div class="ui feed">
+                        <% for (var i = 0; i < feeds.length; i++) { %>
+                            <div class="event">
+                                <div class="label">
+                                    <i class="announcement icon"></i>
+                                </div>
+                                <div class="content">
+                                    <div class="summary">
+                                        <a href="<%= feeds[i].link %>" target="_blank"><%= feeds[i].title %></a>
+                                    </div>
+                                    <div class="date">
+                                        <%= feeds[i].pubDate %>
+                                    </div>
+                                    <div class="extra text">
+                                        <%- feeds[i].description %>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                    <br>
+                    <button class="ui labeled icon tiny button">
+                        <i class="plus icon"></i>
+                        Load More
+                    </button>
+                <% } else { %>
+                    No posts found :( <a href="/preferences">Try to add RSS Feeds</a>
+                <% } %>
+            </div>
+
+<% include template/footer %>

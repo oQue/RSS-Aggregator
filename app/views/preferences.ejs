@@ -1,0 +1,54 @@
+<% include template/header %>
+
+            <div class="ui main container center aligned">
+                <h2 class="ui aligned icon header">
+                    <i class="settings icon"></i>
+                    <div class="content">
+                        User preferences
+                    </div>
+                </h2>
+                <br>
+                <div class="ui horizontal divider">RSS Feeds Preferences</div>
+                <div class="ui segment">
+                    <div class="ui relaxed items">
+                        <% if (user.feeds && user.feeds.length > 0) { %>
+                            <% for (var i = 0; i < user.feeds.length; i++) { %>
+                                <div class="ui form removeForm" id="<%= user.feeds[i].id %>">
+                                    <div class="fields">
+                                        <div class="ten wide disabled field">
+                                            <input type="text" name="feedUrl" id="feedUrl" value="<%= user.feeds[i].url %>">
+                                        </div>
+                                        <div class="five wide disabled field">
+                                            <input type="text" name="feedName" id="feedName" value="<%= user.feeds[i].name %>">
+                                        </div>
+                                        <div class="one wide ui submit animated button">
+                                            <div class="hidden content">Remove</div>
+                                            <div class="visible content">
+                                                <i class="remove icon"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% } %>
+                        <% } %>
+                            <div class="ui form addForm">
+                                <div class="three fields">
+                                    <div class="ten wide field">
+                                        <input type="text" name="feedUrl" id="feedUrl" placeholder="Feed URL">
+                                    </div>
+                                    <div class="five wide field">
+                                        <input type="text" name="feedName" id="feedName" placeholder="Feed Name (only letters, spaces and digits)">
+                                    </div>
+                                    <div class="one wide ui submit animated button" id="addButton">
+                                        <div class="hidden content">Add</div>
+                                        <div class="visible content">
+                                            <i class="plus icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+<% include template/footer %>

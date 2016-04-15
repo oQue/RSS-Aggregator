@@ -1,0 +1,15 @@
+<% include template/header %>
+
+            <% if (user.feeds && user.feeds.length > 0) { %>
+                <script defer src="https://query.yahooapis.com/v1/public/yql?q=<%= url %>&format=json&callback=yqlCallback"></script>
+                <div class="ui active inverted dimmer" id="loaderDiv">
+                    <div class="ui text loader">Loading</div>
+                </div>
+            <% } %>
+            <div class="ui main text container middle" id="content">
+                <% if (!user.feeds || user.feeds.length == 0) { %>
+                    No posts found :( <a href="/preferences">Try to add RSS Feeds</a>
+                <% } %>
+            </div>
+
+<% include template/footer %>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RSS Aggregator</title>
+        <link rel="stylesheet" href="/css/semantic/semantic.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="/css/semantic/semantic.min.js"></script>
+        <script type="text/javascript" src="/js/signup.js"></script>
+    </head>
+    
+    <body>
+        
+        <div id="login_form" class="ui middle aligned center aligned grid">
+            <div class="column">
+                <h1 class="ui header">
+                    <div class="content">
+                        RSS Aggregator
+                    </div>
+                </h1>
+                <h2 class="ui header">
+                    <div class="content">
+                        Sign Up
+                    </div>
+                </h2>
+                <form class="ui large form" action="/signup" method="post">
+                    <div class="ui stacked segment">
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="login" placeholder="Login">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="lock icon"></i>
+                                <input type="password" name="password2" placeholder="Repeat Password">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui left icon input">
+                                <i class="send icon"></i>
+                                <input type="text" name="email" placeholder="Email">
+                            </div>
+                        </div>
+                        <div class="ui fluid large submit button">Sign Up</div>
+                        <% if (message.length > 0) { %>
+                            <br/>
+                            <div class="ui red basic large fluid label">
+                                <%= message %>
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="ui error message"></div>
+                </form>
+                <div class="ui message">
+                    <a href="/signin">Already registered? Sign In instead</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

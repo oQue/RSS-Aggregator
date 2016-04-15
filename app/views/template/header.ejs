@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>RSS Aggregator</title>
+        <link rel="stylesheet" href="/css/semantic/semantic.min.css" type="text/css" />
+        <link rel="stylesheet" href="/css/style.css" type="text/css" />
+        <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+        <script src="/css/semantic/semantic.min.js"></script>
+        <% if (page_name === 'main') { %>
+        <script type="text/javascript" src="/js/feed.js"></script>
+        <% } else if (page_name === 'pref') { %>
+        <script type="text/javascript" src="/js/pref.js"></script>
+        <% } %>
+    </head>
+    
+    <body>
+        <% if (user.feeds && user.feeds.length > 0) { %>
+            <div class="ui vertical inverted sidebar menu left" id="toc">
+                <div class="header item">
+                    <i class="home icon"></i> RSS Aggregator
+                </div>
+                <a class="item" href="/">
+                    <i class="announcement icon"></i> Everything
+                </a>
+                <% for (var i = 0; i < user.feeds.length; i++) { %>
+                    <a class="item" href="/?feed=<%= user.feeds[i].id %>">
+                        <i class="play icon"></i> <%= user.feeds[i].name %>
+                    </a>
+                <% } %>
+            </div>
+        <% } %>
+
+        <div class="pusher">
+            <div class="ui fixed menu" id="top-menu">
+                <div class="ui container">
+                    <% if (user.feeds && user.feeds.length > 0 && page_name === 'main') { %>
+                        <div id="menu_button" class="item">
+                	        <i class="content icon"></i>
+                        </div>
+                    <% } %>
+                    <a href="/" class="header item">
+                        <i class="home icon"></i>
+                        RSS Aggregator
+                    </a>
+                    <div class="ui simple right dropdown item">
+                        Logged in as <%= user.login %>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a class="item" href="/preferences">
+                                <i class="setting icon"></i> Preferences
+                            </a>
+                            <a class="item" href="/logout">
+                                <i class="sign out icon"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
