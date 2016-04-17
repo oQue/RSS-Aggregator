@@ -8,8 +8,8 @@ var config = {
     app: {
       name: 'workspace'
     },
-    port: 3000,
-    db: 'mongodb://localhost/workspace-development'
+    port: process.env.PORT || 3000,
+    db: process.env.MONGODB_URI || 'mongodb://localhost/workspace-development'
   },
 
   test: {
@@ -17,8 +17,8 @@ var config = {
     app: {
       name: 'workspace'
     },
-    port: 3000,
-    db: 'mongodb://localhost/workspace-test'
+    port: process.env.PORT || 3000,
+    db: process.env.MONGODB_URI || 'mongodb://localhost/workspace-test'
   },
 
   production: {
@@ -26,8 +26,8 @@ var config = {
     app: {
       name: 'workspace'
     },
-    port: 3000,
-    db: 'mongodb://localhost/workspace-production'
+    port: process.env.PORT || 3000,
+    db: process.env.MONGODB_URI || 'mongodb://localhost/workspace-production'
   }
 };
 
